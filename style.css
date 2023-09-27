@@ -1,0 +1,112 @@
+/* L'ordre des media screen est important : du + grand au + petit */
+/* 320px — 480px : les mobiles
+481px — 768px : iPads, tablettes
+769px — 1024px : petits écrans, ordinateurs portables
+1025px — 1200px : ordinateurs de bureau, écrans larges
+1201px et plus —  écrans extra larges, TV */
+
+@media screen and (max-width: 800px) {
+    h1 {
+        color: red
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        color: blue
+    }
+}
+
+@media screen and (max-width: 320px) {
+    h1 {
+        color: green
+    }
+}
+
+body {
+    background: #000000;
+    background-image: url(./images/abstraitfo_ofovtBsu.jpg);
+    background-size: cover;
+    color: #ffffff;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    background-color: #000000;
+    align-items: center;
+}
+
+h1 {
+    position: absolute;
+    /* border: red 2px solid; */
+    text-align: center;
+    width: 100%;
+}
+
+h3 {
+    display: flex;
+    width: 800px;
+    text-align: justify;
+    background-color: rgba(0,0,0,0.85);
+    margin: auto;
+    padding: 1em;
+}
+
+.groupe-4-jetons {
+    /* display: flex; */
+    position: absolute;
+    /* justify-content: center; */
+    margin: auto;
+    width: 100%;
+}
+
+.groupe-4-jetons>img {
+    padding: 0 5px 0 5px;
+}
+
+.combinaison {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    min-height: 50px;
+    width: 800px;
+    padding: 1em;
+    /* border: red 2px solid; */
+    background-color: rgba(0,0,0,0.85);
+}
+
+.proposition-jetons {
+   display: flex; 
+   justify-content: center;
+}
+
+.proposition-jetons .jeton {
+    padding: 0 5px 0 5px;
+ }
+
+#proposition {
+    width: 800px;
+    background-color: rgba(0,0,0,0.85);
+    margin: auto;
+    padding: 1em;
+    border: #ffffff 2px solid;
+}
+
+.indices {
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    height: 65px;
+    width: 65px;
+}
+
+button {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 15em;
+    height: 2em;
+    margin: auto;
+}

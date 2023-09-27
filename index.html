@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu du mastermind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="\images\vecteezy_idea-brain-icon-on-transparent-background_blanc.png" alt="logo mastermind"
+            height="75px" />
+        <h1>Bienvenue au jeu du mastermind !</h1>
+    </header>
+    <h2>Un grand classique des jeux de société !</h2>
+    <br><br>
+    <h3>Ce jeu se joue avec un joueur qui choisit une combinaison de couleur (un codemaker) et un autre joueur qui doit
+        deviner ces couleurs
+        et dans quel ordre (un codebreaker). A chaque tour, le codebreaker doit faire une proposition, le codemaker doit
+        lui répondre
+        en indiquant le nombre de couleurs bien placées et le nombre de bonnes couleurs mal placées.</h3>
+    <br>
+    <button id="lancement-jeu">Je veux jouer !</button>
+    <button id="relancer-jeu" style="display: none;">Une nouvelle partie !</button>
+    <br><br>
+    <div class="combinaison">
+        <div class="groupe-4-jetons">
+            <img id="code-secret-jeton1" src="./images/indice-blanc.png" height="50px" />
+            <img id="code-secret-jeton2" src="./images/indice-blanc.png" height="50px" />
+            <img id="code-secret-jeton3" src="./images/indice-blanc.png" height="50px" />
+            <img id="code-secret-jeton4" src="./images/indice-blanc.png" height="50px" />
+        </div>
+    </div>
+    <br>
+    <div id="proposition" style="display: none;">
+        <label for="combinaison">Quelle est votre proposition de combinaison :</label>
+        <br>
+        <br>
+        <div class="proposition-jetons">
+            <div class="jeton">
+                <select id="jeton1" name="jeton1">
+                    <option value="blanc"></option>
+                    <option value="jaune">jaune</option>
+                    <option value="bleu">bleu</option>
+                    <option value="rose">rose</option>
+                    <option value="vert">vert</option>
+                    <option value="violet">violet</option>
+                    <option value="orange">orange</option>
+                </select>
+            </div>
+            <div class="jeton">
+                <select id="jeton2" name="jeton2">
+                    <option value="blanc"></option>
+                    <option value="jaune">jaune</option>
+                    <option value="bleu">bleu</option>
+                    <option value="rose">rose</option>
+                    <option value="vert">vert</option>
+                    <option value="violet">violet</option>
+                    <option value="orange">orange</option>
+                </select>
+            </div>
+            <div class="jeton">
+                <select id="jeton3" name="jeton3">
+                    <option value="blanc"></option>
+                    <option value="jaune">jaune</option>
+                    <option value="bleu">bleu</option>
+                    <option value="rose">rose</option>
+                    <option value="vert">vert</option>
+                    <option value="violet">violet</option>
+                    <option value="orange">orange</option>
+                </select>
+            </div>
+            <div class="jeton">
+                <select id="jeton4" name="jeton4">
+                    <option value="blanc"></option>
+                    <option value="jaune">jaune</option>
+                    <option value="bleu">bleu</option>
+                    <option value="rose">rose</option>
+                    <option value="vert">vert</option>
+                    <option value="violet">violet</option>
+                    <option value="orange">orange</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <input type="submit" id="validation-proposition" value="valider">
+        <p id="essais"></p>
+        <p id="reponse"></p>
+        <p id="indice1"></p>
+        <p id="indice2"></p>
+    </div>
+
+    <div class="combinaison" id="combinaison12" style="display: none;">
+        <div class="essai" id="essai12">
+            <p>N°12</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition12">
+            <img id="proposition12-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition12-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition12-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition12-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices12">
+            <img id="proposition12-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition12-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition12-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition12-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison11" style="display: none;">
+        <div class="essai" id="essai11">
+            <p>N°11</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition11">
+            <img id="proposition11-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition11-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition11-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition11-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices11">
+            <img id="proposition11-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition11-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition11-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition11-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison10" style="display: none;">
+        <div class="essai" id="essai10">
+            <p>N°10</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition10">
+            <img id="proposition10-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition10-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition10-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition10-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices10">
+            <img id="proposition10-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition10-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition10-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition10-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison9" style="display: none;">
+        <div class="essai" id="essai9">
+            <p>N°9</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition9">
+            <img id="proposition9-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition9-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition9-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition9-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices9">
+            <img id="proposition9-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition9-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition9-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition9-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison8" style="display: none;">
+        <div class="essai" id="essai8">
+            <p>N°8</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition8">
+            <img id="proposition8-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition8-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition8-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition8-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices8">
+            <img id="proposition8-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition8-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition8-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition8-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison7" style="display: none;">
+        <div class="essai" id="essai7">
+            <p>N°7</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition7">
+            <img id="proposition7-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition7-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition7-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition7-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices7">
+            <img id="proposition7-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition7-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition7-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition7-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison6" style="display: none;">
+        <div class="essai" id="essai6">
+            <p>N°6</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition6">
+            <img id="proposition6-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition6-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition6-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition6-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices6">
+            <img id="proposition6-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition6-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition6-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition6-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison5" style="display: none;">
+        <div class="essai" id="essai5">
+            <p>N°5</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition5">
+            <img id="proposition5-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition5-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition5-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition5-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices5">
+            <img id="proposition5-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition5-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition5-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition5-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison4" style="display: none;">
+        <div class="essai" id="essai4">
+            <p>N°4</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition4">
+            <img id="proposition4-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition4-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition4-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition4-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices4">
+            <img id="proposition4-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition4-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition4-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition4-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison3" style="display: none;">
+        <div class="essai" id="essai3">
+            <p>N°3</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition3">
+            <img id="proposition3-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition3-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition3-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition3-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices3">
+            <img id="proposition3-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition3-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition3-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition3-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison2" style="display: none;">
+        <div class="essai" id="essai2">
+            <p>N°2</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition2">
+            <img id="proposition2-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition2-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition2-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition2-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices2">
+            <img id="proposition2-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition2-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition2-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition2-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <div class="combinaison" id="combinaison1" style="display: none;">
+        <div class="essai" id="essai1">
+            <p>N°1</p>
+        </div>
+        <div class="groupe-4-jetons" id="proposition1">
+            <img id="proposition1-jeton1" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition1-jeton2" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition1-jeton3" src="./images/jeton-noir.png" height="50px" />
+            <img id="proposition1-jeton4" src="./images/jeton-noir.png" height="50px" />
+        </div>
+        <div class="indices" id="indices1">
+            <img id="proposition1-indice1" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition1-indice2" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition1-indice3" src="./images/jeton-noir.png" height="25px" />
+            <img id="proposition1-indice4" src="./images/jeton-noir.png" height="25px" />
+        </div>
+    </div>
+
+    <script src="mastermind.js"></script>
+</body>
+
+</html>
